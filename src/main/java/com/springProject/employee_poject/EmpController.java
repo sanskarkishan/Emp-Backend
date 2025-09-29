@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
-@CrossOrigin(origins = "https://emp-database-system.netlify.app")
+@CrossOrigin(origins = {
+    "http://localhost:5173",
+    "https://emp-database-system.netlify.app"
+})
 public class EmpController {
     
     //EmployeeService employeeService = new EmployeeServiceImpl();
