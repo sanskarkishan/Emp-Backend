@@ -11,7 +11,10 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # ---------- Runtime Stage ----------
-FROM openjdk:17-jdk-slim
+# Use a maintained Temurin image for Java 17 runtime. The generic
+# `openjdk:17-jdk-slim` tag may be removed from Docker Hub; use
+# `eclipse-temurin:17-jdk` which is stable and compatible.
+FROM eclipse-temurin:17-jdk
 WORKDIR /app
 
 # Copy jar from build stage
